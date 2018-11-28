@@ -1,5 +1,5 @@
 {
-  "name": "nodenv",
+  "name": "node-env-manager",
   "version": "1.0.0",
   "description": "Operating on the NODE_ENV environmental variable",
   "main": "dist/index.js",

@@ -1,11 +1,27 @@
+/** NODE_ENV 集合 */
+export enum ENV {
+    /** 开发环境 */
+    PROD = "production",
+    /** 生产环境 */
+    DEV = "development",
+    /** 本地环境 */
+    LOCAL = "local",
+    /** 测试环境 */
+    TEST = "test",
+    /** 正式环境 */
+    EXP = "experience",
+    /** 灰度环境 */
+    GRAY = "gray",
+    /** CI 环境 */
+    CI = "ci"
+}
+
 /**
  * process.env.NODE_ENV 不存在时，初始化为`env`
  * @param env {string} [env="development"]
  */
-export const init = (env = "development") => {
-    if (!process.env.NODE_ENV) {
-        set(env);
-    }
+export const init = (env: ENV | string = ENV.DEV) => {
+    return !process.env.NODE_ENV ? set(env) : false;
 };
 
 /**
@@ -17,10 +33,14 @@ export const get = () => {
 
 /**
  * 设置process.env.NODE_ENV 为`env`
- * @param env {string} [env="development"]
+ * @param env {string}
  */
-export const set = (env = "development") => {
-    process.env.NODE_ENV = env.trim().toUpperCase();
+export const set = (env: ENV | string) => {
+    if (typeof env === "string") {
+        env = env.trim().toLowerCase();
+    }
+    process.env.NODE_ENV = env;
+    return true;
 };
 
 /**
@@ -84,7 +104,7 @@ export const isProd = () => {
 };
 
 /**
- * 是否Gray 环境
+ * 是否正式环境
  * @returns boolean
  */
 export const isExp = () => {
@@ -101,7 +121,7 @@ export const isExp = () => {
 };
 
 /**
- * 是否Gray 环境
+ * 是否灰度环境
  * @returns boolean
  */
 export const isGray = () => {
@@ -111,4 +131,17 @@ export const isGray = () => {
     }
     env = env.trim().toUpperCase();
     return ["gray"].map((item) => item.trim().toUpperCase()).indexOf(env) !== -1;
+};
+
+/**
+ * 是否CI 环境
+ * @returns boolean
+ */
+export const isCi = () => {
+    let env = process.env.NODE_ENV;
+    if (typeof env !== "string") {
+        return false;
+    }
+    env = env.trim().toUpperCase();
+    return ["ci"].map((item) => item.trim().toUpperCase()).indexOf(env) !== -1;
 };

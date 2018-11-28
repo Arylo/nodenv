@@ -1,4 +1,4 @@
-# nodenv
+# NODE-ENV Manager
 
 Operating on the NODE_ENV environmental variable
 
@@ -10,8 +10,23 @@ Operating on the NODE_ENV environmental variable
 [![Author][AUTHOR_URL]][AUTHOR_HREF]
 [![license][LICENSE_URL]][LICENSE_HREF]
 
-[NPM_URL]: https://img.shields.io/node/v/nodenv.svg?style=flat-square&maxAge=600
-[NPM_HREF]: https://www.npmjs.com/package/nodenv
+## Usage
+
+```javascript
+const { ENV } = require("node-env-manager");
+
+ENV.PROD  // -> "production"
+ENV.DEV   // -> "development"
+ENV.LOCAL // -> "local"
+ENV.TEST  // -> "test"
+ENV.EXP   // ->"experience"
+ENV.GRAY  // -> "gray"
+ENV.CI    // -> "ci"
+
+```
+
+[NPM_URL]: https://img.shields.io/node/v/node-env-manager.svg?style=flat-square&maxAge=600
+[NPM_HREF]: https://www.npmjs.com/package/node-env-manager
 [TRAVIS_URL]: https://img.shields.io/travis/Arylo/nodenv/master.svg?style=flat-square&logo=travis&maxAge=600
 [TRAVIS_HREF]: https://travis-ci.org/Arylo/nodenv
 [COVERALLS_URL]: https://img.shields.io/coveralls/github/Arylo/nodenv/master.svg?style=flat-square&maxAge=600
