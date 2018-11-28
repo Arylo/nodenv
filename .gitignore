@@ -57,5 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# Node Export File
+package-lock.json
+
 # Node Export Files
 /dist

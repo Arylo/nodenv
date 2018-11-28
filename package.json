@@ -18,7 +18,23 @@
   },
   "keywords": [
     "arylo",
-    "typescript"
+    "typescript",
+    "process",
+    "environment",
+    "env",
+    "nodeenv",
+    "NODE_ENV",
+    "test",
+    "local",
+    "debug",
+    "dev",
+    "develop",
+    "development",
+    "prod",
+    "production",
+    "exp",
+    "experience",
+    "gray"
   ],
   "engines": {
     "node": ">=6"
