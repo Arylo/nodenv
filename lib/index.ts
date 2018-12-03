@@ -36,9 +36,10 @@ export const get = () => {
  * @param env {string}
  */
 export const set = (env: ENV | string) => {
-    if (typeof env === "string") {
-        env = env.trim().toLowerCase();
+    if (typeof env !== "string") {
+        return false;
     }
+    env = env.trim().toLowerCase();
     process.env.NODE_ENV = env;
     return true;
 };
@@ -137,7 +138,7 @@ export const isGray = () => {
  * 是否CI 环境
  * @returns boolean
  */
-export const isCi = () => {
+export const isCI = () => {
     let env = process.env.NODE_ENV;
     if (typeof env !== "string") {
         return false;

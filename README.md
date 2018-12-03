@@ -12,6 +12,8 @@ Operating on the NODE_ENV environmental variable
 
 ## Usage
 
+### CONST
+
 ```javascript
 const { ENV } = require("node-env-manager");
 
@@ -19,10 +21,27 @@ ENV.PROD  // -> "production"
 ENV.DEV   // -> "development"
 ENV.LOCAL // -> "local"
 ENV.TEST  // -> "test"
-ENV.EXP   // ->"experience"
+ENV.EXP   // -> "experience"
 ENV.GRAY  // -> "gray"
 ENV.CI    // -> "ci"
+```
 
+### Mothods
+
+```javascript
+const env = require("node-env-manager");
+
+env.init(); // set `process.env.NODE_ENV` value if this is null
+env.set();  // set `process.env.NODE_ENV` value
+env.get();  // get `process.env.NODE_ENV` value
+
+env.isLocal();
+env.isTest();
+env.isDev();
+env.isProd();
+env.isExp();
+env.isGray();
+env.isCI();
 ```
 
 [NPM_URL]: https://img.shields.io/node/v/node-env-manager.svg?style=flat-square&maxAge=600
