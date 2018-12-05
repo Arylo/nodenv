@@ -2,14 +2,22 @@
 export enum ENV {
     /** 开发环境 */
     PROD = "production",
+    /** 开发环境 */
+    PRODUCTION = "production",
     /** 生产环境 */
-    DEV = "development",
+    DEV = "dev",
+    /** 生产环境 */
+    DEVELOP = "develop",
+    /** 生产环境 */
+    DEVELOPMENT = "development",
     /** 本地环境 */
     LOCAL = "local",
     /** 测试环境 */
     TEST = "test",
     /** 正式环境 */
-    EXP = "experience",
+    EXP = "exp",
+    /** 正式环境 */
+    EXPERIENCE = "experience",
     /** 灰度环境 */
     GRAY = "gray",
     /** CI 环境 */
@@ -36,7 +44,7 @@ export const get = () => {
  * @param env {string}
  */
 export const set = (env: ENV | string) => {
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
     env = env.trim().toLowerCase();
@@ -50,11 +58,12 @@ export const set = (env: ENV | string) => {
  */
 export const isLocal = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return ["local"].map((item) => item.trim().toUpperCase()).indexOf(env) !== -1;
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.LOCAL ];
+    return envs.indexOf(env) !== -1;
 };
 
 /**
@@ -63,11 +72,12 @@ export const isLocal = () => {
  */
 export const isTest = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return ["test"].map((item) => item.trim().toUpperCase()).indexOf(env) !== -1;
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.TEST ];
+    return envs.indexOf(env) !== -1;
 };
 
 /**
@@ -76,15 +86,12 @@ export const isTest = () => {
  */
 export const isDev = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return (
-        ["dev", "develop", "development"]
-            .map((item) => item.trim().toUpperCase())
-            .indexOf(env) !== -1
-    );
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.DEV, ENV.DEVELOP, ENV.DEVELOPMENT ];
+    return envs.indexOf(env) !== -1;
 };
 
 /**
@@ -93,15 +100,12 @@ export const isDev = () => {
  */
 export const isProd = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return (
-        ["prod", "production"]
-            .map((item) => item.trim().toUpperCase())
-            .indexOf(env) !== -1
-    );
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.PROD, ENV.PRODUCTION ];
+    return envs.indexOf(env) !== -1;
 };
 
 /**
@@ -110,15 +114,12 @@ export const isProd = () => {
  */
 export const isExp = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return (
-        ["exp", "experience"]
-            .map((item) => item.trim().toUpperCase())
-            .indexOf(env) !== -1
-    );
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.EXP, ENV.EXPERIENCE ];
+    return envs.indexOf(env) !== -1;
 };
 
 /**
@@ -127,11 +128,12 @@ export const isExp = () => {
  */
 export const isGray = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return ["gray"].map((item) => item.trim().toUpperCase()).indexOf(env) !== -1;
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.GRAY ];
+    return envs.indexOf(env) !== -1;
 };
 
 /**
@@ -140,9 +142,10 @@ export const isGray = () => {
  */
 export const isCI = () => {
     let env = process.env.NODE_ENV;
-    if (typeof env !== "string") {
+    if (!env || typeof env !== "string") {
         return false;
     }
-    env = env.trim().toUpperCase();
-    return ["ci"].map((item) => item.trim().toUpperCase()).indexOf(env) !== -1;
+    env = env.trim().toLowerCase();
+    const envs: string[] = [ ENV.CI ];
+    return envs.indexOf(env) !== -1;
 };

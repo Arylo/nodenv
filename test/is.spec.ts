@@ -5,64 +5,65 @@ test.beforeEach(() => {
     delete process.env.NODE_ENV;
 });
 
-test((t) => {
+test("isProd", (t) => {
     process.env.NODE_ENV = env.ENV.PROD;
     t.true(env.isProd());
 });
 
-test((t) => {
+test("isProd", (t) => {
     t.false(env.isProd());
 });
 
-test((t) => {
+test("isDev", (t) => {
     process.env.NODE_ENV = env.ENV.DEV;
     t.true(env.isDev());
 });
-test((t) => {
+
+test("isDev", (t) => {
     t.false(env.isDev());
 });
 
-test((t) => {
+test("isLocal", (t) => {
     process.env.NODE_ENV = env.ENV.LOCAL;
     t.true(env.isLocal());
 });
 
-test((t) => {
+test("isLocal", (t) => {
     t.false(env.isLocal());
 });
 
-test((t) => {
+test("isTest", (t) => {
     process.env.NODE_ENV = env.ENV.TEST;
     t.true(env.isTest());
 });
 
-test((t) => {
+test("isTest", (t) => {
     t.false(env.isTest());
 });
 
-test((t) => {
+test("isExp", (t) => {
     process.env.NODE_ENV = env.ENV.EXP;
     t.true(env.isExp());
 });
 
-test((t) => {
+test("isExp", (t) => {
     t.false(env.isExp());
 });
 
-test((t) => {
+test("isGray", (t) => {
     process.env.NODE_ENV = env.ENV.GRAY;
     t.true(env.isGray());
 });
 
-test((t) => {
+test("isGray", (t) => {
     t.false(env.isGray());
 });
 
-test((t) => {
+test("isCI", (t) => {
     process.env.NODE_ENV = env.ENV.CI;
     t.true(env.isCI());
 });
 
-test((t) => {
+test("isCI", (t) => {
     t.false(env.isCI());
 });

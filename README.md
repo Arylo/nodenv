@@ -12,18 +12,28 @@ Operating on the NODE_ENV environmental variable
 
 ## Usage
 
+### Install
+
+```shell
+npm install node-env-manager
+```
+
 ### CONST
 
 ```javascript
 const { ENV } = require("node-env-manager");
 
-ENV.PROD  // -> "production"
-ENV.DEV   // -> "development"
-ENV.LOCAL // -> "local"
-ENV.TEST  // -> "test"
-ENV.EXP   // -> "experience"
-ENV.GRAY  // -> "gray"
-ENV.CI    // -> "ci"
+ENV.PROD          // -> "production",
+ENV.PRODUCTION    // -> "production",
+ENV.DEV           // -> "dev",
+ENV.DEVELOP       // -> "develop",
+ENV.DEVELOPMENT   // -> "development",
+ENV.LOCAL         // -> "local",
+ENV.TEST          // -> "test",
+ENV.EXP           // -> "exp",
+ENV.EXPERIENCE    // -> "experience",
+ENV.GRAY          // -> "gray",
+ENV.CI            // -> "ci"
 ```
 
 ### Mothods
@@ -31,7 +41,7 @@ ENV.CI    // -> "ci"
 ```javascript
 const env = require("node-env-manager");
 
-env.init(); // set `process.env.NODE_ENV` value if this is null
+env.init(); // set `process.env.NODE_ENV` value if the value is null
 env.set();  // set `process.env.NODE_ENV` value
 env.get();  // get `process.env.NODE_ENV` value
 

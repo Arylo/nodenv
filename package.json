@@ -1,6 +1,6 @@
 {
   "name": "node-env-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Operating on the NODE_ENV environmental variable",
   "main": "dist/index.js",
   "types": "lib/index.ts",
@@ -23,6 +23,8 @@
     "environment",
     "env",
     "nodeenv",
+    "node-env",
+    "node_env",
     "NODE_ENV",
     "test",
     "local",
