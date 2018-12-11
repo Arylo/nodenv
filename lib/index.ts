@@ -1,14 +1,16 @@
 /** NODE_ENV 集合 */
 export enum ENV {
-    /** 开发环境 */
-    PROD = "production",
-    /** 开发环境 */
+    /** 生产环境 */
+    PROD = "prod",
+    /** 生产环境 */
+    PRODUCT = "product",
+    /** 生产环境 */
     PRODUCTION = "production",
-    /** 生产环境 */
+    /** 开发环境 */
     DEV = "dev",
-    /** 生产环境 */
+    /** 开发环境 */
     DEVELOP = "develop",
-    /** 生产环境 */
+    /** 开发环境 */
     DEVELOPMENT = "development",
     /** 本地环境 */
     LOCAL = "local",
@@ -104,7 +106,7 @@ export const isProd = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.PROD, ENV.PRODUCTION ];
+    const envs: string[] = [ ENV.PROD, ENV.PRODUCT, ENV.PRODUCTION ];
     return envs.indexOf(env) !== -1;
 };
 

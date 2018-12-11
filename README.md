@@ -23,7 +23,8 @@ npm install node-env-manager
 ```javascript
 const { ENV } = require("node-env-manager");
 
-ENV.PROD          // -> "production",
+ENV.PROD          // -> "prod",
+ENV.PRODUCT       // -> "product",
 ENV.PRODUCTION    // -> "production",
 ENV.DEV           // -> "dev",
 ENV.DEVELOP       // -> "develop",
