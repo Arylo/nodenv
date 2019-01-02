@@ -5,12 +5,12 @@ test.beforeEach(() => {
     delete process.env.NODE_ENV;
 });
 
-test("Default", (t) => {
+test.serial("Default", (t) => {
     t.true(env.init());
     t.true(env.isDev());
 });
 
-test((t) => {
+test.serial("Manual init", (t) => {
     process.env.NODE_ENV = env.ENV.TEST;
     t.false(env.init());
     t.true(env.isTest());

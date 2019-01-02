@@ -5,65 +5,65 @@ test.beforeEach(() => {
     delete process.env.NODE_ENV;
 });
 
-test("isProd", (t) => {
+test.serial("isProd #1", (t) => {
     process.env.NODE_ENV = env.ENV.PROD;
     t.true(env.isProd());
 });
 
-test("isProd", (t) => {
+test.serial("isProd #2", (t) => {
     t.false(env.isProd());
 });
 
-test("isDev", (t) => {
+test.serial("isDev #1", (t) => {
     process.env.NODE_ENV = env.ENV.DEV;
     t.true(env.isDev());
 });
 
-test("isDev", (t) => {
+test.serial("isDev #2", (t) => {
     t.false(env.isDev());
 });
 
-test("isLocal", (t) => {
+test.serial("isLocal #1", (t) => {
     process.env.NODE_ENV = env.ENV.LOCAL;
     t.true(env.isLocal());
 });
 
-test("isLocal", (t) => {
+test.serial("isLocal #2", (t) => {
     t.false(env.isLocal());
 });
 
-test("isTest", (t) => {
+test.serial("isTest #1", (t) => {
     process.env.NODE_ENV = env.ENV.TEST;
     t.true(env.isTest());
 });
 
-test("isTest", (t) => {
+test.serial("isTest #2", (t) => {
     t.false(env.isTest());
 });
 
-test("isExp", (t) => {
+test.serial("isExp #1", (t) => {
     process.env.NODE_ENV = env.ENV.EXP;
     t.true(env.isExp());
 });
 
-test("isExp", (t) => {
+test.serial("isExp #2", (t) => {
     t.false(env.isExp());
 });
 
-test("isGray", (t) => {
+test.serial("isGray #1", (t) => {
     process.env.NODE_ENV = env.ENV.GRAY;
     t.true(env.isGray());
 });
 
-test("isGray", (t) => {
+test.serial("isGray #2", (t) => {
     t.false(env.isGray());
 });
 
-test("isCI", (t) => {
+test.serial("isCI #1", (t) => {
     process.env.NODE_ENV = env.ENV.CI;
     t.true(env.isCI());
 });
 
-test("isCI", (t) => {
+test.serial("isCI #2", (t) => {
     t.false(env.isCI());
 });
