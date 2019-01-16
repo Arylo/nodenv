@@ -16,9 +16,9 @@ export enum ENV {
     LOCAL = "local",
     /** 测试环境 */
     TEST = "test",
-    /** 正式环境 */
+    /** 体验环境 */
     EXP = "exp",
-    /** 正式环境 */
+    /** 体验环境 */
     EXPERIENCE = "experience",
     /** 灰度环境 */
     GRAY = "gray",
@@ -64,7 +64,7 @@ export const isLocal = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.LOCAL ];
+    const envs: string[] = [ENV.LOCAL];
     return envs.indexOf(env) !== -1;
 };
 
@@ -78,7 +78,7 @@ export const isTest = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.TEST ];
+    const envs: string[] = [ENV.TEST];
     return envs.indexOf(env) !== -1;
 };
 
@@ -92,7 +92,7 @@ export const isDev = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.DEV, ENV.DEVELOP, ENV.DEVELOPMENT ];
+    const envs: string[] = [ENV.DEV, ENV.DEVELOP, ENV.DEVELOPMENT];
     return envs.indexOf(env) !== -1;
 };
 
@@ -106,12 +106,12 @@ export const isProd = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.PROD, ENV.PRODUCT, ENV.PRODUCTION ];
+    const envs: string[] = [ENV.PROD, ENV.PRODUCT, ENV.PRODUCTION];
     return envs.indexOf(env) !== -1;
 };
 
 /**
- * 是否正式环境
+ * 是否体验环境
  * @returns boolean
  */
 export const isExp = () => {
@@ -120,7 +120,7 @@ export const isExp = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.EXP, ENV.EXPERIENCE ];
+    const envs: string[] = [ENV.EXP, ENV.EXPERIENCE];
     return envs.indexOf(env) !== -1;
 };
 
@@ -134,7 +134,7 @@ export const isGray = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.GRAY ];
+    const envs: string[] = [ENV.GRAY];
     return envs.indexOf(env) !== -1;
 };
 
@@ -148,6 +148,6 @@ export const isCI = () => {
         return false;
     }
     env = env.trim().toLowerCase();
-    const envs: string[] = [ ENV.CI ];
+    const envs: string[] = [ENV.CI];
     return envs.indexOf(env) !== -1;
 };
