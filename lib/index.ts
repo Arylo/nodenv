@@ -55,6 +55,19 @@ export const set = (env: ENV | string) => {
 };
 
 /**
+ * 判断环境参数
+ * @param e
+ */
+export const is = (e: ENV | string) => {
+    let env = process.env.NODE_ENV;
+    if (!env || typeof env !== "string") {
+        return false;
+    }
+    env = env.trim().toLowerCase();
+    return e === env;
+};
+
+/**
  * 是否本地环境
  * @returns boolean
  */

@@ -5,6 +5,18 @@ test.beforeEach(() => {
     delete process.env.NODE_ENV;
 });
 
+test.serial("is #1", (t) => {
+    t.false(env.is("real"));
+});
+
+test.serial("is #2", (t) => {
+    process.env.NODE_ENV = "real";
+    t.true(env.is("real"));
+    process.env.NODE_ENV = "REAL";
+    t.true(env.is("real"));
+    t.false(env.is("noreal"));
+});
+
 test.serial("isProd #1", (t) => {
     process.env.NODE_ENV = env.ENV.PROD;
     t.true(env.isProd());
