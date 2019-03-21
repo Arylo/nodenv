@@ -12,7 +12,7 @@
     "build:test": "npm run tsc -- -P tsconfig.test.json",
     "pretest": "npm run clean && npm run build:test",
     "test": "ava dist/test/**/*.{spec,e2e}.js",
-    "lint": "npm run lint:typescript && npm run lint:javascript",
+    "lint": "npm run lint:typescript",
     "lint:typescript": "tslint {lib,test}/**/*.ts",
     "lint:javascript": "eslint ./**/*.js"
   },
@@ -36,7 +36,9 @@
     "production",
     "exp",
     "experience",
-    "gray"
+    "gray",
+    "ci",
+    "real"
   ],
   "engines": {
     "node": ">=6"
