@@ -35,6 +35,7 @@ ENV.EXP           // -> "exp",
 ENV.EXPERIENCE    // -> "experience",
 ENV.GRAY          // -> "gray",
 ENV.CI            // -> "ci"
+ENV.REAL          // -> "real"
 ```
 
 ### Mothods
@@ -43,8 +44,9 @@ ENV.CI            // -> "ci"
 const env = require("node-env-manager");
 
 env.init(); // set `process.env.NODE_ENV` value if the value is null
-env.set();  // set `process.env.NODE_ENV` value
 env.get();  // get `process.env.NODE_ENV` value
+env.set("prod");  // set `process.env.NODE_ENV` value
+env.set(env.ENV.DEV);
 
 env.isLocal();
 env.isTest();
@@ -53,6 +55,7 @@ env.isProd();
 env.isExp();
 env.isGray();
 env.isCI();
+env.isReal();
 ```
 
 [NPM_URL]: https://img.shields.io/node/v/node-env-manager.svg?style=flat-square&maxAge=600

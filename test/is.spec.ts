@@ -79,3 +79,17 @@ test.serial("isCI #1", (t) => {
 test.serial("isCI #2", (t) => {
     t.false(env.isCI());
 });
+
+test.serial("isReal #1", (t) => {
+    process.env.NODE_ENV = env.ENV.REAL;
+    t.true(env.isReal());
+});
+
+test.serial("isReal #2", (t) => {
+    t.false(env.isReal());
+});
+
+test.serial("isReal #3", (t) => {
+    process.env.NODE_ENV = "real";
+    t.true(env.isReal());
+});
